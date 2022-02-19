@@ -1,0 +1,84 @@
+{% extends 'blog_base.html' %}
+{% block article_content %}
+<div class="article-title">
+    <h1> {{article.title}} </h1>
+</div>
+<div class="article-detail">
+    <div class="info">
+
+        <div class="author-info">
+
+            <img src="{{photo.url}}" alt="">
+
+            <div class="autho-text">
+                <p class = 'p-name'>Publié par <span>{{author_name}}</span></p>
+                <p>{{bio}}</p>
+            </div>
+
+        </div>
+
+        <div class="author-social">
+            <ul>
+                <li><a href="{{twitter_url}}"><i class= "fab fa-facebook"></i></a></li>
+                <li><a href="{{facebook_url}}"><i class= "fab fa-facebook"></i></a></i></li>
+                <li><a href="{{facebook_url}}"><i class= "fab fa-facebook"></i></a></li>
+                <li><a href="{{facebook_url}}"><i class= "fab fa-facebook"></i></a></li>
+            </ul>
+        </div>
+    
+    </div>
+    <div class="article-tags">
+        <ul>
+            {% for tag in  tags %}
+                <li>{{tag}}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div class="show-container">
+        <div class="article-container">
+           
+            <div class="article-content">
+             {{article.body|safe}}
+            </div> 
+            <a class = 'art-retourn' href="{% url 'articles' %}"> <i class="fas fa-arrow-left"></i> Retour</a> 
+        </div>
+
+
+        <div class="pub">
+
+        </div>
+        
+    </div>
+    <hr>
+
+    <div class="r_form cmt-form">
+        <form action="" method = 'post'>
+            <h3>commenter</h3>
+           {{comment_form.name}}
+           {{comment_form.email}}
+           {{comment_form.body}}
+         {% csrf_token %}
+         <button type="submit" class="cmt-btn">Submit</button>
+        </form>
+    </div>
+    <br>
+    <hr>
+
+    <div class="cmt">
+        {% for comment in comments %}
+            <div class="comments">
+                <p class="cmt-info">
+                commenté par <span class = "post-name">{{ comment.name }}</span>
+                <span class="post-date">
+                {{ comment.created_date}}
+                </span>
+                </p>
+                <p class = "cmt-body">
+                {{ comment.body | linebreaks }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock article_content %}

@@ -1,0 +1,37 @@
+
+<div class="footer2">
+    <div class="foot-content2">
+        <div class="newslleter">
+            <h3>restez informé</h3>
+            <form action="" method = "post">
+                {{newsform.email}}
+                <button type = 'submit'> Envoyez</button>
+            </form>
+        </div>
+        <div class="social-container2"> 
+
+                <ul class="zero2">
+                    <li class = 'about'><a href="{% url 'about' %}" >About</a></li>
+                    <li class = "contact"><a href="{% url 'about' %}" >Contactez-Nous</a></li>
+                </ul>
+
+                <ul class = "social2">
+                    <li><a href=""> <i class = "fab fa-facebook"></i> </a> </li>
+                    <li> <a href=""><i class = "fab fa-facebook"></i> </a> </li>
+                    <li><a href=""> <i class = "fab fa-facebook"></i> </a> </li>
+                    <li> <a href=""><i class = "fab fa-facebook"></i> </a> </li>
+                </ul>
+            
+        </div>
+
+        <div class="foot-info">
+            <ul class = "footer-links">
+                <li><a href = "{% url 'politique' %}">politiques <span>|</span></a></li>
+                <li><a href = "{% url 'politique' %}">articles <span>|</span></a></li>
+                <li><a href = "{% url 'politique' %}">connection<span></span></a></li>
+            </ul>
+            <p>Copyright © 2022 Skyfi Education Labs Pvt. Ltd. All Rights Reserved.</p>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{% extends 'blog_base.html' %}
+
+{% block article_content %}
+<div class="article-detail"><br>
+    <h1>{{politique.title}}</h1>
+    <div class="article-content">
+        {{politique.body|safe}}
+    </div> 
+</div>
+
+{% endblock article_content %}

@@ -1,0 +1,62 @@
+    <nav>
+        <label class = "logo"> Timkdemy </label>
+        <ul>
+            <li>
+                <a class = "active" href = "#"> Home</a>
+            </li>
+
+            <li>
+                <a class = "project" href = "#"> Projects <i class="fas fa-caret-down"></i></a>
+
+                <div class="sub-menu">
+                    <ul>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+
+                    </ul>
+                    
+                </div>
+            </li>
+
+            <li>
+                <a  href = "#"> Contacts</a>
+
+                <div class="sub-menu">
+                    <ul>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+                        <li><a href="#">service</a><i class = "fas fa-user"></i></li>
+
+                    </ul>
+                    
+                </div>
+            </li>
+            <li>
+                <a href = "#"> Connexion</a>
+            </li>
+        </ul>
+    <label id="icon"> <i class = "fas fa-bars"></i></label>
+    </nav>
+
+    <script>
+
+        /*$(document).ready(function(){
+            $('#icon').click(function(){
+                $('ul').toggleClass('show')
+            });
+        });*/
+
+        document
+        .getElementById('icon')
+        .addEventListener('click', function(){
+            document
+            .getElementsByTagName('ul')[0]
+            .classList.toggle('show');
+        })
+    </script>
+    <script src="./dist/polyfill.bundle.js"></script>
+    <script src = "./dist/app.bundle.js"></script>
+</body>

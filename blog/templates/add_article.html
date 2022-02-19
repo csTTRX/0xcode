@@ -1,0 +1,22 @@
+{% extends 'blog_base.html' %}
+{% if article_form.errors %}
+    {{article_form.errors}}
+{% endif %}
+{% block content %}
+<div class="retourn">
+    <a href="{% url 'dashbord' %}"> Retourne au dashbord</a>
+</div>
+<div class="add-article">
+    <form action="", method = 'post'>
+        {% csrf_token %}
+        {{article_form.media}}
+        {{article_form.title}}
+        {{article_form.title_tags}}
+        {{article_form.outils}}
+        {{article_form.categories}}
+        {{article_form.body|safe}}
+        <button type="submit"> Ajoutez</button>
+    </form>
+</div>
+    
+{% endblock content %}

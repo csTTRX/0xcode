@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cv">
+
+        <div class="item">
+            <div class="grid">
+                <h1> Formations</h1>
+                <div class="grid-content">
+                    <div class=" formation">
+                        {% for formation in formations  %}
+                            <div class="formation-content">
+                                <h2>{{ formation.name}}</h2>
+                                <h3>{{formation.etablisement}}</h3>
+                                <p> <span>{{formation.start_at}} - {{formation.end_at}} </span> </p>
+                                <p>{{formation.description}}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="grid">
+                <h1> Competeances </h1>
+                <div class="grid-content">
+                    <div class="tech-lag">
+                        {% for techno in technos  %}
+                        <div class="tech-lag-content">
+                            <div class="itext">
+                                <h2>{{ techno.name}}</h2>
+                                <h2>{{ techno.level}} % </h2>
+                            </div>
+                            <div class="level">
+                                <div class="level-content">
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="grid">
+                <h1> Langues </h1>
+                <div class="grid-content">
+                    <div class="tech-lag">
+                        {% for langue in langues %}
+                        <div class="tech-lag-content">
+                            <div class="itext">
+                                <h2>{{ langue.name}}</h2>
+                                <h2>{{ langue.level}} % </h2>
+                            </div>
+                            <div class="level">
+                                <div class="level-content">
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="grid">
+                <h1> Centre d'interêt </h1>
+                <div class="grid-content">
+                    <div class="interet">
+                        {% for interet in interets %}
+                        <div class="interet-content">
+                                <h2>{{ interet.name}}</h2>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>    
+
+    </div>
+{% endblock content %}

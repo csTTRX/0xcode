@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="contact">
+    <form action="", method = "post">
+        {% csrf_token %} 
+        {{news_form.email}}
+        <button type="submit" class = 'btn'> Envoyez</button>
+    </form>
+</div>
+{% endblock content %}

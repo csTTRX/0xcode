@@ -1,0 +1,92 @@
+
+{% extends 'blog_base.html' %}
+{% load static %}
+{% block article_content %}
+
+{% if searched %}
+    {% if not find %}
+        <p> no resutat for {{searched}}</p>
+
+    {% else %}
+
+    <h3> Resultat de votre cherche </h3>
+    <div class="all-article">
+        {% for article in results %}
+            <a  href="{% url 'show_article' article.id %}">
+                <div class="all-content">
+
+                    <div class="article-img">
+                        {% if article.categories.name == "r" %}
+                         <img src="{% static 'images/r.png' %}" alt="">
+                       
+
+                        {% elif article.categories.name == "w" %}
+                            <img src="{% static 'images/w.png' %}" alt="">
+                  
+                        {% elif  article.categories.name == "ds" %}
+                            <img src="{% static 'images/ds.png' %}" alt="">
+                
+                        {% elif article.categories.name == "ps" %}
+                            <img src="{% static 'images/ps.png' %}" alt="">
+                       
+                        {% elif article.categories.name == "si" %}
+                            <img src="{% static 'images/si.png' %}" alt="">                    
+
+                        {% elif article.categories.name == "ia" %}
+                            <img src="{% static 'images/ia.png' %}" alt="">
+                        {% else %}
+                        <img src="{% static 'images/ia.png' %}" alt="">
+                        {% endif %}
+                    </div>
+
+                    <div class="article-info">
+                    
+                        <h3>{{article.title | linebreaks}}</h3>
+                        <p>
+                            In this section, I have used a simplified CNN to build a classifier. 
+                            So first use Beautiful Soup in order to remove some HTML tags and some unwanted characters.
+                        </p>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="page">
+
+        
+        <div class = "page-cnt">
+        
+            <ul>
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{page_obj.previous_page_number }}">«</a></li>
+                {% endif %}
+                {% if page_obj.paginator.num_pages > 1 %}
+                <li><a href="?page=1">1</a></li>
+                <li class ='p-n'><a href="?page=2">2</a></li>
+                <li class ='p-n' ><a href="?page=3">3</a></li>
+                {% endif %}
+            </ul>
+                
+            
+        </div>
+        {% if page_obj.has_next %}
+        <div class = "page-cnt">
+            <ul>
+                <span class = 'dot'> ... </span>
+                <li> <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                <li><a href="?page={{ page_obj.next_page_number }}">»</a></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% else %}
+        <h1> Vous devez chercher quelque chose</h1>
+    
+    {% endif %}
+
+{% endblock article_content %}

@@ -1,0 +1,88 @@
+{% load static %}
+<html>
+<head> 
+    <meta charset = "UTF-8"/>
+    <meta name = "viewport", content = "width=device-width, initial-scale = 1.0"/>
+    <meta http-equiv = "X-UA-compatible" content = "ie=edge"/>
+    <title> cs_portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai.min.css">
+    <link rel="stylesheet" href="{% static 'blog_style.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}"> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://kit.fontawesome.com/cc08bec826.js" crossorigin="anonymous"></script>
+
+</head>
+<body>    
+    <div class="blog">
+
+        <div class="slidebar">
+            <div class="header">  <a href = " {% url 'blog' %}">0XCODE</a> </div>
+                <p>Well comme <span>{{user}}</span></p>
+                {% if user.profile.photo %}
+                    <img class="avatar" src={{ user.profile.photo.url }}>
+                {% else %}
+                    <img class="avatar" src="{% static 'images/default_profile.png'%}">
+                {% endif %}
+                <ul>
+                    <li><a href="{% url 'update_frofile' user.profile.pk %}">update profile</a></li>
+                    <li><a href="{% url 'add_article' %} ">Ajoutez un article</a></li>
+                    <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+                </ul>
+        </div>
+        <div class="dash-main">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% block content %}
+                <div class="dash-article">
+                    <h1> Tous vos Articles </h1>
+                    <div class="all-article">
+                        <table> 
+                            <thead>
+                                <th>id</th>
+                                <th>Titre</th>
+                                <th>Date de publication</th>
+                                <th>categorie</th>
+                                <th>status</th>
+                                <th>Editer</th>
+                                <th>suprimer</th>
+                            </thead>
+                            <tbody>
+                            {% for article in  author_articles%}
+                                <tr class = "impair">
+                                    <td>{{article.id}}</td>
+                                    <td class = "title"> <a href="{% url 'show_article' article.id %}">{{article.title}}</a> </td>
+                                    <td>{{article.post_date}}</td>
+                                    <td>{{article.categories.name}} ({{article.categories.title_tags}})</td>
+                                     {% if article.publish %}
+                                     <td class = "publish"><i class="fas fa-check-double"></i></i></td>
+                                     {% else %}
+                                     <td class = "processing"><i class="fas fa-check"></td>
+                                     {% endif %}
+                                    <td class = "editer"> <a href="{% url 'edit' article.id %} "> <i class="fas fa-pen"></i></a> </td>
+                                    <td class = "suprimer"> <a href="{% url 'delete' article.id %}"><i class="fas fa-trash"></i></a> </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                    </div>
+            {% endblock content %}
+        </div>
+    </div>
+    <script>
+        document
+        .getElementById('icon')
+        .addEventListener('click', function(){
+            document
+            .getElementsByTagName('ul')[0]
+            .classList.toggle('show');
+        })
+
+        document.getElementById("Check").required = true;
+    </script>
+
+</body>
+</html>

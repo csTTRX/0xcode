@@ -1,0 +1,16 @@
+{% extends 'blog_base.html' %}
+
+{% block content %}
+{% include 'partiels/messages.html' %}
+    <div class="r_form">
+        <form action="", method = "post">
+            <h1 class ="r_title" > Contactez vous ! </h1>
+            {% csrf_token %} 
+            {{form.full_name}}
+            {{form.email}}
+            {{form.message}}
+            <button type="submit" class = 'btn'> Envoyez</button>
+        </form>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,700;1,600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.hero{
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 150px;
+
+}
+section .text {
+    flex: 50%;
+}
+section .img {
+    flex: 50%;
+    
+}
+section .text ul li {
+    font-size: 72px;
+    font-weight: bold;
+    color: white;
+}
+section .text .btnh{
+    border: none;
+    border: 5px;
+    background:rgba(223, 8, 73, 0.50);
+}
+section .text p{
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 100;
+}
+section .text .btnh a{
+    color:rgb(223, 8, 73);
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+}
+section .text .btnh:hover{
+    background:rgba(223, 8, 73, 0.40);
+}
+section .text .btnh{
+    margin-top: 40px;
+}
+/*------------------- cv ----------------------*/
+
+.cv {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.cv .item{
+    margin-top: 100px;
+    padding: 50px 10px;
+    background: rgba(0, 0, 0, 0.60);
+    border-radius: 10px;
+
+}
+.cv .grid{
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.cv .grid h1 {
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+}
+.cv p , h3, h2 {
+    color: rgba(255, 255, 255, 0.90);
+}
+.cv .grid-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cv .grid-content .tech-lag{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.cv .grid-content .tech-lag .tech-lag-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 25%;
+    padding-left: 10px;
+    margin: 40px;
+}
+.cv .grid-content .tech-lag .tech-lag-content .level {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    margin-top: 20px;
+    background: rgb(0, 0, 0);
+}
+.level-content{
+    position:relative;
+    z-index: 1;
+    background: crimson;
+    height: 100%;
+    width: 90%;
+}
+.itext{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.formation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.formation-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 45%;
+    padding: 10px;
+    border: 1px solid rgba(223, 8, 73, 0.85);
+    margin-top: 10px;
+}
+.formation-content p {
+    width: 50%;
+}
+.formation-content p,h3 {
+    margin-top: 20px;
+}
+.interet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(223, 8, 73, 0.60);;
+}
+/* ---------------------------- project------------------*/
+.project {
+    margin-bottom: 100px;
+}
+.project h1{
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+}
+.p-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: space-between;
+}
+.p-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgba(37, 37, 37, 0.74);
+    flex-basis: 20%;
+    margin-bottom: 50px;
+    margin-right: 50px ;
+    border-radius: 10px;
+    background-clip: border-box;
+    padding: 10px;
+}
+.p-grid img{
+    border-radius: 10px 10px 0px 0px;
+}
+.link{
+    display: flex;
+    margin-top: 20px;
+
+}
+.p-grid h3{
+ color: rgba(243, 243, 243, 0.9);
+ font-weight: 700;
+ margin-bottom: 20px;
+}
+.p-grid p{
+    font-weight: 100;
+    color: rgba(243, 243, 243, 0.9);
+}
+.p-grid a{
+    font-weight: 700;
+    color: rgba(223, 8, 73, 0.85);
+    margin-left: 10px;
+
+}
+/* ---------------------------- contact form ------------------*/
+.contact{
+    margin-top: 100px;
+    margin-bottom:100px ;
+    display: flex;
+    justify-content: center;
+}
+.contact form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+}
+
+.contact form h1 {
+    color: white;
+}
+.form .form_input, button, input{
+    height: 50px;
+
+}
+.form .form_input, button, .form_textarea , input{
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.90);
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease;
+}
+input , .form_textarea {
+    font-weight: 700;
+    padding: 10px;
+}
+input:focus, .form_textarea:focus{
+    outline: none !important;
+    border:1px solid rgba(223, 8, 73, 0.85);
+    box-shadow: 0 0 10px #000000f1;
+}
+.btn {
+    background-color: rgba(223, 8, 73, 0.85);
+    color: rgba(223, 8, 73, 0.95);
+    font-size: 25px;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* ---------------------------- media screen ------------------*/
+@media screen and (max-width:1700px) {
+    .p-grid{
+        margin-right: 25px;
+    }
+    
+}
+@media screen and (max-width:1400px){
+
+    .main {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+}
+
+@media screen and (max-width:1275px){
+
+    .p-grid{
+        flex-basis: 45%;
+        margin-right: 10px;
+    }
+}
+
+
+@media (max-width: 1048px){
+
+    label.logo{
+        font-size: 32px;
+        padding-left: 0px;
+        padding-right:0 ;
+    }
+    nav ul {
+        margin-right: 20px;
+    }
+    nav a{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width:1024px){
+
+}
+
+@media (max-width: 900px){
+
+    .p-grid{
+        flex-basis: 100%;
+        margin-right: 0px;
+    }
+    nav #icon {
+        display: block;
+    }
+    label.logo{
+        padding: 0 50px;
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgb(59, 66, 78);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav a{
+        font-size: 20px;
+    }
+    nav a.active ,a:hover{
+        border: none;
+        color: rgb(37, 17, 37);
+    }
+    nav ul li:hover .sub-menu {
+        display: block;
+        position: absolute;
+        background: rgb(31, 30, 87);
+        margin-top: auto;
+        margin-left: 10;
+    }
+    nav ul.show {
+        left: 0;
+    }
+    .contact form {
+        margin: 15px;
+        flex-basis: 100%;
+    }
+    .formation-content {
+        flex-basis: 100%;
+    }
+}
+@media screen and (max-width:600px) {
+    .cv .grid-content .techno .tech-content{
+        flex: 100%;
+    }
+}
+
+@media screen and (max-width:500px){
+    label.logo{
+        font-size: 35px;
+        font-weight: bold;
+        padding-left:10px;
+    }
+    nav #icon{
+        margin-right: 10px;
+    }
+}
+@media (max-width:400px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 10px;
+        margin-right: 0px;
+    }
+    nav #icon {
+        font-size: 30px;
+        margin-right: 10px;
+        padding-right: 0;
+    }
+    section .text ul li {
+        font-size: 50px;
+    }
+}

@@ -1,0 +1,37 @@
+{% extends 'blog_base.html' %}
+
+{% block content %}
+<h1 class= 'r_title'> Inscription </h1>
+
+<div class="r_form">
+
+    <form action = "", method  = "post">
+
+        <div class="form-errors">
+            {% for field in form  %}
+            {{field.errors}}
+            {% endfor %}
+        </div>
+        
+        {{form.username}}
+        <p>{{form.username.help_text}}</p>
+        {{form.email}}
+        {{form.first_name}}
+        {{form.last_name}}
+        {{form.password1}}
+        {{form.password1.help_text}}
+        {{form.password2}}
+        {{form.password2.help_text}}    
+
+        <div class="checkbox">
+        <input type="checkbox", id = 'Check' required> 
+        <p class ='check-p'>si vous n'avez dejà un compte <a href=" {% url 'login' %} "> conditions générales</a></p> 
+        </div> 
+        <button type="submit" > S'inscrire</button>
+        <p class = "p" > si vous n'avez dejà un compte <a href=" {% url 'login' %} "> connectez vous</a> </p>
+        {% csrf_token %}
+        
+    </form>
+</div>
+{% endblock content %}
+

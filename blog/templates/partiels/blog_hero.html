@@ -1,0 +1,15 @@
+{% load static  %}
+<div class="blog-hero">
+    <div class="hero-container">
+
+        <div class="hero-content hero-text">
+            <h1>Apprendre et partager </h1>
+            <p>Si tu sens que tu as une connaissance à partager au monde, ne lui en prive pas !</p>
+            <p><a href=" {% url 'register' %} "> Créer un compte </a></p>
+        </div>
+
+        <div class="hero-content hero-img">
+                <img src="{% static  'images/hero1.svg' %} " alt="">
+        </div>
+    </div>
+</div>

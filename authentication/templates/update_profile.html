@@ -1,0 +1,31 @@
+{% extends 'blog_base.html' %}
+
+{% block content %}
+
+<div class="retourn">
+    <a href="{% url 'dashbord' %}"> Retourne au dashbord</a>
+</div>
+
+<div class="r_form">
+    <form action="", method = "post">
+        {{profile_form.photo}}
+        <label for="">your Bio: </label>
+        {{profile_form.biograph}}
+        <label for="">facebook_url: </label>
+        {{profile_form.facebook_url}}
+        <label for="">twitter_url: </label>
+        {{profile_form.twitter_url}}
+        <label for="">instagram_url: </label>
+        {{profile_form.instagram_url}}
+        <label for="">flinkedin_url: </label>
+        {{profile_form.linkedin_url}}
+        <label for="">github_url: </label>
+        {{profile_form.github_url}}
+
+        <button type="submit"> Mettre à jour</button>
+        {% csrf_token %}
+
+    </form>
+</div>
+
+{% endblock content %}

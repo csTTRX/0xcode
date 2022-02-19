@@ -1,0 +1,24 @@
+<div class="r_form cmt_form">
+     <h3>commenter</h3>
+        <input class='cmt-input'  placeholder = "Email" unicorn:model ='email' type="text">
+        <input class='cmt-input'  placeholder = "Name" unicorn:model= 'name' type="text">
+        <textarea class  = "form_textarea"  placeholder = "votre commentaire" u:model.lazy = 'body'  name = 'body'></textarea>
+      {% csrf_token %}
+      <button unicorn:click="submit" class="cmt-btn">Submit</button>
+</div>
+<br>
+<hr>
+
+{% for comment in comments %}
+<div class="comments">
+<p class="cmt-info">
+    commenté par <span class = "post-name">{{ comment.name }}</span>
+    <span class="post-date">
+    {{ comment.created_date}}
+    </span>
+</p>
+<p class = "cmt-body">
+    {{ comment.body | linebreaks }}
+    </p>
+</div>
+{% endfor %}

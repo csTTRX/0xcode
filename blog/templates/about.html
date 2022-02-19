@@ -1,0 +1,10 @@
+{% extends 'blog_base.html' %}
+
+{% block article_content %}
+    <div class="article-detail">
+        <h1>{{about.title}}</h1>
+        <div class="article-content">
+            {{about.body|safe}}
+        </div> 
+    </div>
+{% endblock article_content %}

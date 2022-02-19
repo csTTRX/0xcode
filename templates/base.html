@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+<head> 
+    <meta charset = "UTF-8"/>
+    <meta name = "viewport", content = "width=device-width, initial-scale = 1.0"/>
+    <meta http-equiv = "X-UA-compatible" content = "ie=edge"/>
+    <title> cs_portfolio</title>
+    <link rel="stylesheet" href="{% static 'black_body.css' %}"> 
+    <link rel="stylesheet" href="{% static 'base.css' %}"> 
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+   
+    <script src="https://kit.fontawesome.com/cc08bec826.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <div class="main">
+        {% include 'partiels/header.html' %}
+        {% block content %}{% endblock content %}
+    </div>
+    {% include 'partiels/messages.html' %}
+    {% include 'partiels/footer2.html' %}
+
+    <script>
+
+        /*$(document).ready(function(){
+            $('#icon').click(function(){
+                $('ul').toggleClass('show')
+            });
+        });*/
+
+        document
+        .getElementById('icon')
+        .addEventListener('click', function(){
+            document
+            .getElementsByTagName('ul')[0]
+            .classList.toggle('show');
+        })
+    </script>
+
+</body>
+</html>

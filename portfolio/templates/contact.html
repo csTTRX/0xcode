@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'partiels/messages.html' %}
+    <div class="contact">
+        <form action="", method = "post">
+            <h1> Contactez vous ! </h1>
+            {% csrf_token %} 
+            {{form.full_name}}
+            {{form.email}}
+            {{form.message}}
+            <button type="submit" class = 'btn'> Envoyez</button>
+        </form>
+    </div>
+{% endblock content %}
+
