@@ -6,7 +6,7 @@
 
 
 :root{
-    --primary-color:#ff5ca0;
+    --primary-color:#ff0095;
     --primary-plus:#d84984;
     --second-color:#0D100D;
     --black-easy:#262626;
@@ -33,7 +33,7 @@ body{
     margin: 100px 0;
 }
 .blog-hero{
-    background: var(--primary-color);
+    background:var(--primary-color);
     display: flex;
     flex-wrap: wrap;
 }
@@ -131,7 +131,7 @@ body{
 /* ---------------------------- nav ------------------*/
 nav {
     height: 100px;
-    background: var(--primary-color);
+    background:var(--primary-color);
     padding: 0px 150px;
     display: flex;
     flex-direction: row;
@@ -244,7 +244,7 @@ nav #icon {
     position: fixed;
     width: 200px;
     height: 100%;
-    background: #d84984;
+    background:var(--primary-color);
     top: 0;
     margin: 0;
     padding: 10px;
@@ -367,7 +367,7 @@ tr:nth-child(2n){
 }
 .retourn a{
     font-weight: 600;
-    color: #d84984;
+    color: var(--primary-color);
 }
 /* ---------------------------- register form ------------------*/
 
@@ -738,7 +738,7 @@ tr:nth-child(2n){
 }
 .all-content:hover{
     background: rgb(41, 41, 41);
-    border-right:2px solid tomato;
+    border-right:2px solid var(--primary-color);
 }
 .all-content:hover i{
     display: block;
@@ -749,7 +749,7 @@ tr:nth-child(2n){
     font-weight: 300;
 }
 .article-info i {
-    color: rgb(221, 49, 64);
+    color: var(--primary-color);
     float: right;
     right: 0;
     text-align: right;
