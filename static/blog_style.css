@@ -589,6 +589,7 @@ tr:nth-child(2n){
     display: flex;
     flex-direction: row;
     padding: 40px 0;
+    justify-content: center;
 }
 .show-container i , .show-container .art-retourn {
     color: var(--primary-color);
@@ -603,12 +604,11 @@ tr:nth-child(2n){
 }
 
 .article-container{
-    flex-basis: 80%;
-    width: 150px;
+    flex-basis: 50%;
     padding: 0 40px;
 }
 .pub{
-    flex: 20%;
+    flex-basis: 20%;
     background: rgb(248, 248, 248);
 }
 .show-container .article-title{
@@ -623,11 +623,14 @@ tr:nth-child(2n){
     max-width: 100%;
     
 }
+.cmt{
+    max-width: 70%;
+    margin:auto
+}
 .cmt-input{
     margin-bottom: 10px;
     height: 40px;
     padding: 0 5px;
-    
 }
 .cmt-cnt{
     padding: 0 5px;
