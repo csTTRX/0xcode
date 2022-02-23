@@ -4,6 +4,7 @@
         <div class="newslleter">
             <h3>restez informé</h3>
             <form action="" method = "post">
+                {% csrf_token %}
                 {{newsform.email}}
                 <button type = 'submit'> Envoyez</button>
             </form>
@@ -30,7 +31,7 @@
                 <li><a href = "{% url 'politique' %}">articles <span>|</span></a></li>
                 <li><a href = "{% url 'politique' %}">connection<span></span></a></li>
             </ul>
-            <p>Copyright © 2022 Skyfi Education Labs Pvt. Ltd. All Rights Reserved.</p>
+            <p>Copyright © 2022 tout droit reservé par 02xcode</p>
             
         </div>
     </div>

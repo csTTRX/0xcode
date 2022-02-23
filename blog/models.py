@@ -31,6 +31,7 @@ class Articles(models.Model):
     categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
     outils = models.CharField(max_length=500)
     likes = models.ManyToManyField(User ,related_name='blogs_likes')
+    description = models.CharField(max_length=1200)
     
     class Meta:
         ordering = ['update_date']

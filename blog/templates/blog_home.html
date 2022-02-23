@@ -21,7 +21,7 @@
         <div class="blog-main">    
             {% block content %}
                 <div class="news-article">
-                    <h1> Les nouveaux </h1>
+                    <h3 style  = "margin-left:20px ;" > Les nouveaux </h3>
                     <div class="all-article">
                         {% for article in news_articles %}
                             <a  href="{% url 'show_article' article.id %}">
@@ -58,8 +58,7 @@
                                     
                                         <h3>{{article.title}}</h3>
                                         <p>
-                                            In this section, I have used a simplified CNN to build a classifier. 
-                                            So first use Beautiful Soup in order to remove some HTML tags and some unwanted characters.
+                                            {{article.description}}
                                         </p>
                                         <i class="fas fa-arrow-right"></i>
                                     </div>

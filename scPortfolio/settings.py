@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,14 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z^2f(0!#qjz%6_+h%$wqjyr39wc7h!l0a3jk_^*^jy_15%#17e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '192.168.0.103',
-    '0xcode.com',
-    '0.0.0.0']
+    '137.184.193.34',
+    '02xcode.com',
+]
 
 
 # Application definition
@@ -46,17 +46,9 @@ INSTALLED_APPS = [
     'authentication',
     'portfolio',
     'blog',
-    # over apps---------------------
     'ckeditor',
     'ckeditor_uploader',
     "django_unicorn",
-    # social authentication
-    #"allauth",
-    #"allauth.account",
-    #"allauth.socialaccount",
-    #social providers
-    #"allauth.socialaccount.providers.github",
-    #"allauth.socialaccount.providers.twitter",
 ]
 
 MIDDLEWARE = [
@@ -93,22 +85,22 @@ WSGI_APPLICATION = 'scPortfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 #DATABASES = {
 #    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': '0xcode',
-#        'USER': 'csttrx',
-#        'PASSWORD': 'csthebest#1',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
+#        'ENGINE': 'django.db.backends.sqlite3',
+#       'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '0xcode',
+        'USER': 'csttrx',
+        'PASSWORD': 'csthebest#1',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -148,7 +140,7 @@ STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = [BASE_DIR.joinpath("static/")]
 else:
-    STATIC_ROOT = BASE_DIR.joinpath("static/")
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -239,9 +231,3 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
-
-
-#AUTHENTICATION_BACKENDS = (
-#    "allauth.account.auth_backends.AuthenticationBackend",
-#)
-#AUTHENTICATION_BACKENDS = ['authentication.authenticate.EmailOrUsernameModelBackend']

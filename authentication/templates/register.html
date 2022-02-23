@@ -1,7 +1,7 @@
 {% extends 'blog_base.html' %}
 
 {% block content %}
-<h1 class= 'r_title'> Inscription </h1>
+<h1 class= 'r_title'>Inscription</h1>
 
 <div class="r_form">
 
@@ -25,10 +25,10 @@
 
         <div class="checkbox">
         <input type="checkbox", id = 'Check' required> 
-        <p class ='check-p'>si vous n'avez dejà un compte <a href=" {% url 'login' %} "> conditions générales</a></p> 
+        <p class ='check-p'> Vous devez lire et accepter les<a href=" {% url 'login' %} "> conditions générales</a></p> 
         </div> 
         <button type="submit" > S'inscrire</button>
-        <p class = "p" > si vous n'avez dejà un compte <a href=" {% url 'login' %} "> connectez vous</a> </p>
+        <p class = "p" > si vous avez dejà un compte <a href=" {% url 'login' %} "> connectez vous</a> </p>
         {% csrf_token %}
         
     </form>

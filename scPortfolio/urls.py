@@ -16,11 +16,12 @@ Including another URLconf
 from unicodedata import name
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from authentication.views import *
 from blog.views import *
 from portfolio.views import*
 from django.conf.urls.static import static
+from django.views.static import serve
 from django.contrib.auth.views import LoginView , LogoutView , PasswordChangeView , PasswordChangeDoneView , PasswordResetView
 
 urlpatterns = [
@@ -51,8 +52,6 @@ urlpatterns = [
     path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',  activate, name='activate'),  
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("unicorn/", include("django_unicorn.urls")),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root':settings.STATIC_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
-    

@@ -15,10 +15,10 @@ class SearchForm(forms.Form):
 class ArticleForm(forms.ModelForm):
     title =forms.CharField(widget=forms.TextInput(attrs={'class' : "art-input" ,'placeholder':'Le titre'}))
     title_tags =forms.CharField(widget=forms.TextInput(attrs={'class' : "art-input" ,'placeholder':'Les tags'}))
-
+    description = forms.CharField(widget=forms.Textarea(attrs={"class" : "form_textarea", "placeholder":"Description"}))
     class Meta:
         model = Articles
-        fields = ['title', 'title_tags', 'body','categories']
+        fields = ['title', 'title_tags', 'body','categories', 'description']
     
     def __init__(self, *args, **kwargs):
         super(ArticleForm,self ).__init__(*args, **kwargs)

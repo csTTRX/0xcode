@@ -13,12 +13,13 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.paginator import Paginator
 from django.db.models import Q
-
+from django.conf import settings
 
 def blog(request):
     newsform = newsletter_form(request)
     news_articles = Articles.objects.order_by("-update_date")[:6]
     return render(request, 'blog_home.html', context= {'newsform':newsform, 'news_articles':news_articles})
+
 
     
 def articles(request):
@@ -161,5 +162,4 @@ def edit(request, id):
         edit_form = ArticleForm(request.POST, instance = article)
         edit_form.save()
         messages.success(request, 'Votre Article a bien été modifié')
-        #return redirect('dashbord')
     return render(request, 'edit.html', context={'article_form': edit_form})

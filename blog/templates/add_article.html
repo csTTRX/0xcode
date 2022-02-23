@@ -4,7 +4,7 @@
 {% endif %}
 {% block content %}
 <div class="retourn">
-    <a href="{% url 'dashbord' %}"> Retourne au dashbord</a>
+    <a href="{% url 'dashbord' %}">Dashbord</a>
 </div>
 <div class="add-article">
     <form action="", method = 'post'>
@@ -14,6 +14,7 @@
         {{article_form.title_tags}}
         {{article_form.outils}}
         {{article_form.categories}}
+        {{article_form.description}}
         {{article_form.body|safe}}
         <button type="submit"> Ajoutez</button>
     </form>

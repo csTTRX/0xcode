@@ -41,7 +41,7 @@
             <div class="article-content">
              {{article.body|safe}}
             </div> 
-            <a class = 'art-retourn' href="{% url 'articles' %}"> <i class="fas fa-arrow-left"></i> Retour</a> 
+            <a class = 'art-retourn' href="{% url 'articles' %}"> <i class="fas fa-arrow-left"></i>Retour</a> 
         </div>
 
 
@@ -59,7 +59,7 @@
            {{comment_form.email}}
            {{comment_form.body}}
          {% csrf_token %}
-         <button type="submit" class="cmt-btn">Submit</button>
+         <button type="submit" class="cmt-btn">Envoyez</button>
         </form>
     </div>
     <br>

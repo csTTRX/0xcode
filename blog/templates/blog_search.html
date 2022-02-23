@@ -5,11 +5,11 @@
 
 {% if searched %}
     {% if not find %}
-        <p> no resutat for {{searched}}</p>
+        <h4> pas de resultat pour {{searched}}</h4>
 
     {% else %}
 
-    <h3> Resultat de votre cherche </h3>
+    <h3 style  = "margin-left:20px ;" > Resultat de votre cherche </h3>
     <div class="all-article">
         {% for article in results %}
             <a  href="{% url 'show_article' article.id %}">
@@ -41,10 +41,9 @@
 
                     <div class="article-info">
                     
-                        <h3>{{article.title | linebreaks}}</h3>
+                        <h3>{{article.title}}</h3>
                         <p>
-                            In this section, I have used a simplified CNN to build a classifier. 
-                            So first use Beautiful Soup in order to remove some HTML tags and some unwanted characters.
+                           {{article.description}}
                         </p>
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -85,7 +84,7 @@
     </div>
     {% endif %}
     {% else %}
-        <h1> Vous devez chercher quelque chose</h1>
+        <h3 style  = "margin-left:20px ;" > Vous devez chercher quelque chose</h3>
     
     {% endif %}
 
