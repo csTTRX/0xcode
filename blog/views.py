@@ -142,7 +142,6 @@ def politique(request):
 
 def dashbord(request):
     author_articles = Articles.objects.filter(Q(author = request.user)).order_by('id')
-    print(request.user.profile.pk)
     return render(request, 'dashbord2.html', context={'author_articles':author_articles})
 
 def delete(request, id):

@@ -4,7 +4,7 @@ from blog.models import Articles, Categories, Outils, Comments, SiteInfo
 
 class ArticleAdmin(admin.ModelAdmin):
 
-    list_display = ["title", "title_tags", "post_date", 'categories', ]
+    list_display = ["title", "title_tags", "post_date", 'categories','description', ]
 admin.site.register(Articles, ArticleAdmin)
 class OutilsAdmin(admin.ModelAdmin):
 

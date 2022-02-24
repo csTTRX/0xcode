@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+from importlib.resources import path
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z^2f(0!#qjz%6_+h%$wqjyr39wc7h!l0a3jk_^*^jy_15%#17e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -66,7 +67,7 @@ ROOT_URLCONF = 'scPortfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.joinpath('templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,22 +86,22 @@ WSGI_APPLICATION = 'scPortfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '0xcode',
-        'USER': 'csttrx',
-        'PASSWORD': 'csthebest#1',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR +'/'+'db.sqlite3',
     }
 }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': '0xcode',
+#        'USER': 'csttrx',
+#        'PASSWORD': 'csthebest#1',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -138,7 +139,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 if DEBUG:
-    STATICFILES_DIRS = [BASE_DIR.joinpath("static/")]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Default primary key field type
@@ -160,7 +161,7 @@ EMAIL_HOST_PASSWORD = 'csthebest#1'
 EMAIL_PORT = 587
 
 MEDIA_USL = "/media/"
-MEDIA_ROOT = BASE_DIR.joinpath("media/")
+MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
