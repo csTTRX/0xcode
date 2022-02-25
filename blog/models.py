@@ -1,4 +1,6 @@
+from datetime import datetime
 from distutils.command.upload import upload
+from ipaddress import ip_address
 from django.db import models
 from authentication.models import User
 from ckeditor.fields import RichTextField , RichTextFormField
@@ -74,3 +76,7 @@ class SiteInfo(models.Model):
     def __str__(self):
         return self.title
     
+class SiteVisitors(models.Model):
+    ip_address = models.GenericIPAddressField()
+    page_visited = models.TextField()
+    event_date = models.DateTimeField(default=datetime.now)

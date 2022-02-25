@@ -18,6 +18,7 @@
     <div class="blog">
         {% include 'partiels/blog_header.html' %}
         {% include 'partiels/blog_hero.html' %}
+        {{context_nb_vistors}}
         <div class="blog-main">    
             {% block content %}
                 <div class="news-article">

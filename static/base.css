@@ -95,8 +95,8 @@
 }
 
 .social-container2 li i:hover{
-    border: 2px solid var(--primary-plus);
-    border-radius: 50%;
+    font-size: 47px;
+    color: var(--primary-color);
 }
 .about, .contact{
     border: 1px solid var(--primary-color);
@@ -201,11 +201,13 @@ margin-bottom: 15px ;
 
 @media (max-width: 1400px){
 
-    nav #icon {
+    nav #icon{
         position: relative;
         display: block;
-        padding: 0;
-        font-size: 45px;
+        padding-right: 10px;
+    }
+    nav #icon img {
+        max-width: 40px;
     }
     nav ul  a:hover {
         border-bottom: none;
@@ -213,13 +215,14 @@ margin-bottom: 15px ;
     }
     label.logo{
         padding: 0 50px;
+        font-size: 30px;
     }
     nav ul {
         position: fixed;
         width: 100%;
         height: auto;
         top: 100px;
-        background: rgb(19, 19, 19);
+        background: var(--black-easy);
         display: none;
         text-align: center;
         transition: all .5s;
@@ -233,15 +236,16 @@ margin-bottom: 15px ;
         line-height: 30px;
     }
     nav li:hover {
-        background: rgb(139, 138, 137);
-        border-bottom:3px solid rgba(180, 23, 23, 0.856);
+        background: var(--primary-color);
     }
     nav a{
-        font-size: 20px;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: left;
     }
     nav a:hover{
         border: none;
-        color: rgb(230, 22, 74);
+        color: var(--white-easy);
     }
 
     nav ul.show {
@@ -297,8 +301,9 @@ margin-bottom: 15px ;
     }
     .footer2 .foot-content2 .zero2 , .social2 , p, .footer-links{
         margin-bottom: 10px;
-        flex: 100%;
+        flex: 100%;;
     }
+
 
 }
 
@@ -396,7 +401,7 @@ margin-bottom: 15px ;
         font-size: 20px;
     }
     .social-container2 li {
-        padding: 0  0 0 5px;
+        padding: 0  0 0 15px;
     }
     .social-container2 li i{
         font-size: 35px;
@@ -406,10 +411,26 @@ margin-bottom: 15px ;
         padding: 5px;
     }
 }
-@media screen and (max-width:300px){
+@media screen and (max-width:500px){
 
+    .social2{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (max-width:360px){
 
-    .i{
-        margin-right: 30px;
+    .newslleter form input {
+        width: 100%;
+    }
+    .newslleter form button {
+        margin-top: 10px;
+        width: 100%;
+    }
+    .social-container2{
+        width: 100%;
+    }
+    .social-container2 .contact li a {
+        font-size: 5px;
     }
 }

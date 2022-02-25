@@ -1,22 +1,23 @@
+{% load static %}
 <nav>
     <div class="nav-logo">
-        <a href = "{% url 'blog' %}"><label class = "logo"> 0XCODE </label></a>
+        <a href = "{% url 'blog' %}"><label class = "logo">0XCODE</label></a>
     </div>
 
         {% include '../partiels/search_form.html' %}
 
     <ul>
         <li>
-            <a class = "active" href = "{% url 'blog' %}"> Home</a>
+            <a class = "active" href = "{% url 'blog' %}">Home</a>
         </li>
         <li>
-            <a href ="{% url 'articles' %}"> Aticles</a>
+            <a href ="{% url 'articles' %}">Aticles</a>
         </li>
         <li>
-            <a  href = "{% url 'blog_contact' %}"> Contact us</a>
+            <a  href = "{% url 'blog_contact' %}"> Contact nous</a>
         </li>
         {% if user.is_authenticated %}
-        <li> <a  href = "{% url 'logout' %}"> logout</a></li>
+        <li> <a  href = "{% url 'logout' %}">Se déconnecter</a></li>
             {% if perms.blog.add_article %}
             <li>
                 <a class = "project" href = "{% url 'dashbord' %}">Dashbord</a>
@@ -24,11 +25,11 @@
             {% endif %}
         {% else %}
         <li>
-            <a  href = "{% url 'login' %}"> Se connecter</a>
+            <a  href = "{% url 'login' %}">Se connecter</a>
         </li>
         {% endif %}
 
     </ul>
 
-    <label id="icon"> <i class = "fas fa-bars"></i></label>
+    <label id="icon"> <img src="{% static  'images/menu.png' %} " alt=""></label>
 </nav>

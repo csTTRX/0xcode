@@ -15,7 +15,6 @@
 </head>
 <body>    
     <div class="blog">
-
         <div class="slidebar">
             <div class="header">  <a href = " {% url 'blog' %}">0XCODE</a> </div>
                 <p>Well comme <span>{{user}}</span></p>
@@ -29,6 +28,7 @@
                     <li><a href="{% url 'add_article' %} ">Ajoutez un article</a></li>
                     <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
                 </ul>
+                <div class ='visitors'><span> five last minutes visitors :</span><i> {{context_nb_vistors}}</i></div>
         </div>
         <div class="dash-main">
             <ul class="messages">

@@ -10,11 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-from importlib.resources import path
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-z^2f(0!#qjz%6_+h%$wqjyr39wc7h!l0a3jk_^*^jy_15%#17e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -50,6 +49,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     "django_unicorn",
+    'clearcache',
+
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blog.visitors_comptor.save_visitors',
             ],
         },
     },
@@ -89,15 +91,15 @@ WSGI_APPLICATION = 'scPortfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR +'/'+'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': '0xcode',
-#        'USER': 'csttrx',
-#        'PASSWORD': 'csthebest#1',
+#        'NAME': 'zeroxcode',
+#        'USER': 'ircode',
+#        'PASSWORD': '228kemite223',
 #        'HOST': 'localhost',
 #        'PORT': '5432',
 #    }
@@ -160,7 +162,7 @@ EMAIL_HOST_USER = 'mcoulcreation@gmail.com'
 EMAIL_HOST_PASSWORD = 'csthebest#1'
 EMAIL_PORT = 587
 
-MEDIA_USL = "/media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"

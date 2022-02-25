@@ -8,11 +8,11 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget= (forms.Textarea(attrs = {'class':'form_textarea', "placeholder":"Enter your message here"})))
 
 class NewsletterForm(forms.ModelForm):
-
+    news_letter = forms.BooleanField(widget=forms.HiddenInput, initial=True)
     email = forms.EmailField(widget=forms.EmailInput(attrs={
         'class':'news-input',
         "placeholder":"Adress mail",
     }))
     class Meta:
         model = Newsletter
-        fields = ["email",]
+        fields = ["email",'news_letter',]

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Articles, Categories, Outils, Comments, SiteInfo
+from blog.models import Articles, Categories, Outils, Comments, SiteInfo,SiteVisitors
 
 class ArticleAdmin(admin.ModelAdmin):
 
@@ -23,6 +23,12 @@ class SiteInfoAdmin(admin.ModelAdmin):
     list_display = ["title", 'title_tags',]
 
 admin.site.register(SiteInfo , SiteInfoAdmin)
+
+class SiteVisitorsAdmin(admin.ModelAdmin):
+
+    list_display = ["ip_address", 'event_date', 'page_visited',]
+
+admin.site.register(SiteVisitors , SiteVisitorsAdmin)
 # Register your models here.
 
 @admin.register(Comments)
