@@ -1,7 +1,7 @@
 {% load static %}
 <div class="search-box">
     <form action=" {% url 'blog_search' %} ", method = "post">
-            <input id = 'search' type="search" name="searched" placeholder="your search here">  
+            <input id = 'search' type="search" name="searched" placeholder="Rechercher">  
             <button type="submit" , class = 'button' , value =""> <img class = 'i' src="{% static 'images/magnifying-glass.png'%}" alt=""> </button>
             {% csrf_token %}
     </form> 

@@ -19,7 +19,7 @@ from django.http import HttpResponse
 
 def register(request):
 
-   #newsform = newsletter_form(request)
+    newsform = newsletter_form(request)
     form = RegisterForm()
     message = ""
     if request.method=='POST':
@@ -27,41 +27,29 @@ def register(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            print(form)
             user.save()
-
             current_site = get_current_site(request)  
+            to_email = form.cleaned_data.get('email') 
             print(current_site)
-            mail_subject = 'Activation link has been sent to your email id'  
+            mail_subject = "02xcode.com lien d'activation"
             message = render_to_string('acc_active_email.html', {  
                 'user': user,  
-                'domain': "http://127.0.0.1:8000",
+                'domain': current_site,
                 'uid':urlsafe_base64_encode(force_bytes(user.pk)),  
                 'token':account_activation_token.make_token(user),  
-            })  
-            to_email = form.cleaned_data.get('email')  
+            })   
             email = EmailMessage(  
                         mail_subject, message, to=[to_email]  
             )  
             email.send()  
-            
-            #login(request, user)
-            return HttpResponse('Please confirm your email address to complete the registration')  
-            
-       # elif:
-          #  form.email.is_exist
-            messages.succes(request, 'veuillez bien ramplis tous la champs')
-
-    return render(request, 'register.html', context={"form":form,'newsform':"newsform"})
+            return HttpResponse("Veuillez confirmer le lien d'activation envoyé à l'addresse " + to_email)  
+    return render(request, 'register.html', context={"form":form,'newsform':newsform})
 
 
 
 def login_view(request):
 
-    #newsform = newsletter_form(request)
-    #authen = EmailOrUsernameModelBackend()
-
-    """
+    newsform = newsletter_form(request)
     form = LoginForm()
     if request.method =="POST":
         form = LoginForm(request.POST)
@@ -74,9 +62,8 @@ def login_view(request):
             if user_authenticated  is not None:
                 login(request, user_authenticated )
                 print(request.session)
-                return redirect('home')
-    return render(request, 'login.html' , context={'form':form, 'newsform':"newsform"})
-    """
+                return redirect('blog')
+    return render(request, 'login.html' , context={'form':form, 'newsform':newsform})
 
 
 def activate(request, uidb64, token):  
@@ -90,7 +77,7 @@ def activate(request, uidb64, token):
         user.is_active = True  
         user.save()
         login(request, user)
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')  
+        return HttpResponse('')  
     else:  
         return HttpResponse('Activation link is invalid!')  
 
@@ -104,5 +91,5 @@ def update_frofile(request, user_id):
         profile_form = ProfileForm(request.POST, request.FILES , instance = profile)
         if profile_form.is_valid():
             profile_form.save()
-            messages.success(request, 'Le mis à jour de votre a reussi')
+            messages.success(request, 'La mise à jour de votre profile a réussi')
     return render(request, 'update_profile.html', context = {'profile_form':profile_form})

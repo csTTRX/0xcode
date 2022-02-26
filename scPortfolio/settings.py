@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z^2f(0!#qjz%6_+h%$wqjyr39wc7h!l0a3jk_^*^jy_15%#17e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'scPortfolio.wsgi.application'
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
 DATABASES = {
@@ -157,9 +157,9 @@ LOGOUT_REDIRECT_URL = "blog"
 ACCOUNT_LOGOUT_ON_GET = False
 
 EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'mcoulcreation@gmail.com'
-EMAIL_HOST_PASSWORD = 'csthebest#1'
+EMAIL_HOST = 'smtp.ionos.com'  
+EMAIL_HOST_USER = 'contact@02xcode.com'
+EMAIL_HOST_PASSWORD = '228kemite223'
 EMAIL_PORT = 587
 
 MEDIA_URL = "/media/"

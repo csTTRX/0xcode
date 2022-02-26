@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="r_form">
-    <h1 class = 'r_title'> Connection </h1>
+    <h1 class = 'r_title'> Connexion </h1>
     <div class="form-errors">
         {% for field in form  %}
         {{field.errors}}
@@ -12,7 +12,7 @@
         {{form.username}}
         {{form.password}}
         <button type="submit" > Se connecter</button>
-        <p class = "p"> si vous n'avez pas un compte<a href=" {% url 'register' %} "> creez un compte</a> </p>
+        <p class = "p"> Vous n'avez pas un compte ?<a href=" {% url 'register' %} "> créer un compte</a> </p>
         {% csrf_token %}
     </form>
 </div>

@@ -1,7 +1,7 @@
 {% load static %}
 <nav>
     <div class="nav-logo">
-        <a href = "{% url 'blog' %}"><label class = "logo">0XCODE</label></a>
+        <a href = "{% url 'blog' %}"><label class = "logo">02XCODE</label></a>
     </div>
 
         {% include '../partiels/search_form.html' %}
@@ -11,10 +11,10 @@
             <a class = "active" href = "{% url 'blog' %}">Home</a>
         </li>
         <li>
-            <a href ="{% url 'articles' %}">Aticles</a>
+            <a href ="{% url 'articles' %}">Articles</a>
         </li>
         <li>
-            <a  href = "{% url 'blog_contact' %}"> Contact nous</a>
+            <a  href = "{% url 'blog_contact' %}"> Contactez nous</a>
         </li>
         {% if user.is_authenticated %}
         <li> <a  href = "{% url 'logout' %}">Se déconnecter</a></li>

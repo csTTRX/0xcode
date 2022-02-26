@@ -45,7 +45,7 @@ urlpatterns = [
     path('blog/contact/', blog_contact, name='blog_contact'),
     path('politique/', politique, name='politique'),
     path('about/', about, name='about'),
-    path('login/', LoginView.as_view(template_name = 'login.html'), name="login"),
+    path('login/', login_view, name="login"),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('update_profile/<int:user_id>', update_frofile , name="update_frofile"),
     path('pass_change/', PasswordChangeView.as_view(template_name = "auth/password_change.html"), name = "password_change"),

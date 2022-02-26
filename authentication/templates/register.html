@@ -28,7 +28,7 @@
         <p class ='check-p'> Vous devez lire et accepter les<a href=" {% url 'login' %} "> conditions générales</a></p> 
         </div> 
         <button type="submit" > S'inscrire</button>
-        <p class = "p" > si vous avez dejà un compte <a href=" {% url 'login' %} "> connectez vous</a> </p>
+        <p class = "p" >Vous avez dejà un compte ?<a href=" {% url 'login' %} "> connectez vous</a> </p>
         {% csrf_token %}
         
     </form>

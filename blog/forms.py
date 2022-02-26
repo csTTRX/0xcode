@@ -10,7 +10,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from blog.models import Articles, Comments
 class SearchForm(forms.Form):
-    Value = forms.CharField(widget=forms.TextInput(attrs={'class' : "search_value" ,'name':'value', 'placeHolder':'your search'}))
+    Value = forms.CharField(widget=forms.TextInput(attrs={'class' : "search_value" ,'name':'value', 'placeholder':'Recherher'}))
 
 class ArticleForm(forms.ModelForm):
     title =forms.CharField(widget=forms.TextInput(attrs={'class' : "art-input" ,'placeholder':'Le titre'}))

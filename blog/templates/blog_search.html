@@ -5,11 +5,11 @@
 
 {% if searched %}
     {% if not find %}
-        <h4> pas de resultat pour {{searched}}</h4>
+        <h4> Pas de resultat pour {{searched}}</h4>
 
     {% else %}
 
-    <h3 style  = "margin-left:20px ;" > Resultat de votre cherche </h3>
+    <h3 style  = "margin-left:20px ;" > Resultats de votre recherche </h3>
     <div class="all-article">
         {% for article in results %}
             <a  href="{% url 'show_article' article.id %}">
