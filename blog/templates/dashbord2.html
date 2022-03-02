@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai.min.css">
     <link rel="stylesheet" href="{% static 'blog_style.css' %}">
     <link rel="stylesheet" href="{% static 'base.css' %}"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://kit.fontawesome.com/cc08bec826.js" crossorigin="anonymous"></script>
 
 </head>
 <body>    
@@ -25,7 +25,7 @@
                 {% endif %}
                 <ul>
                     <li><a href="{% url 'update_frofile' user.profile.pk %}">update profile</a></li>
-                    <li><a href="{% url 'add_article' %} ">Ajoutez un article</a></li>
+                    <li><a href="{% url 'add_article' %} ">✚ Ajouter</a></li>
                     <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
                 </ul>
                 <div class ='visitors'><span> five last minutes visitors :</span><i> {{context_nb_vistors}}</i></div>
@@ -54,16 +54,16 @@
                             {% for article in  author_articles%}
                                 <tr class = "impair">
                                     <td>{{article.id}}</td>
-                                    <td class = "title"> <a href="{% url 'show_article' article.id %}">{{article.title}}</a> </td>
+                                    <td class = "title"> <a href="{% url 'show_article' article.slug %}">{{article.title}}</a> </td>
                                     <td>{{article.post_date}}</td>
                                     <td>{{article.categories.name}} ({{article.categories.title_tags}})</td>
                                      {% if article.publish %}
-                                     <td class = "publish"><i class="fas fa-check-double"></i></i></td>
+                                     <td class = "publish"><i class="fas fa-check-double"></i></td>
                                      {% else %}
-                                     <td class = "processing"><i class="fas fa-check"></td>
+                                     <td class = "processing"><i class="fas fa-check"></i></td>
                                      {% endif %}
-                                    <td class = "editer"> <a href="{% url 'edit' article.id %} "> <i class="fas fa-pen"></i></a> </td>
-                                    <td class = "suprimer"> <a href="{% url 'delete' article.id %}"><i class="fas fa-trash"></i></a> </td>
+                                    <td class = "editer"> <a href="{% url 'edit' article.slug %} "><i class="fas fa-pen"></i></a> </td>
+                                    <td class = "suprimer"> <a href="{% url 'delete' article.slug %}"><i class="fas fa-trash"></i></a> </td>
                                 </tr>
                             {% endfor %}
                         </tbody>

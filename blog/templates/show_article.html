@@ -1,7 +1,7 @@
 {% extends 'blog_base.html' %}
 {% block article_content %}
 <div class="article-title">
-    <h1> {{article.title}} </h1>
+    <h1> {{article_detail.title}} </h1>
 </div>
 <div class="article-detail">
     <div class="info">
@@ -39,7 +39,7 @@
         <div class="article-container">
            
             <div class="article-content">
-             {{article.body|safe}}
+             {{article_detail.body|safe}}
             </div> 
             <a class = 'art-retourn' href="{% url 'articles' %}"> <i class="fas fa-arrow-left"></i>Retour</a> 
         </div>

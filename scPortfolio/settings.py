@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.sites",
+    'django.contrib.sitemaps',
     'authentication',
     'portfolio',
     'blog',
@@ -88,22 +89,22 @@ WSGI_APPLICATION = 'scPortfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'zeroxcode',
-        'USER': 'ircode',
-        'PASSWORD': '228kemite223',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'zeroxcode',
+#        'USER': 'ircode',
+#        'PASSWORD': '228kemite223',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -156,8 +157,8 @@ LOGIN_REDIRECT_URL = "blog"
 LOGOUT_REDIRECT_URL = "blog"
 ACCOUNT_LOGOUT_ON_GET = False
 
-EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.ionos.com'  
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.ionos.com'
 EMAIL_HOST_USER = 'contact@02xcode.com'
 EMAIL_HOST_PASSWORD = '228kemite223'
 EMAIL_PORT = 587
@@ -166,6 +167,12 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+SECURE_HSTS_SECONDS = 30  # Unit is seconds; *USE A SMALL VALUE FOR TESTING!*
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 
 CKEDITOR_CONFIGS = {
@@ -234,3 +241,8 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+SECURE_HSTS_SECONDS = 30  # Unit is seconds; *USE A SMALL VALUE FOR TESTING!*
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

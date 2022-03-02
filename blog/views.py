@@ -1,6 +1,4 @@
 import datetime
-import profile
-from sqlite3 import connect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
@@ -9,34 +7,32 @@ from classes.methods import newsletter_form
 from blog.forms import ArticleForm ,CommentForm
 from portfolio.forms import ContactForm
 from django.shortcuts import render, get_object_or_404
-from django.contrib.sites.shortcuts import get_current_site 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.conf import settings
 
 def blog(request):
     newsform = newsletter_form(request)
-    news_articles = Articles.objects.order_by("-update_date")[:6]
+    news_articles = Articles.objects.filter(publish = True).order_by("-update_date")[:6]
     return render(request, 'blog_home.html', context= {'newsform':newsform, 'news_articles':news_articles})
 
 
     
 def articles(request):
     newsform = newsletter_form(request)
-    article = Articles.objects.all()
-    paginator = Paginator(article, 6)
+    article = Articles.objects.filter(publish = True)
+    paginator = Paginator(article, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
             
     return render(request, 'blog.html', context={'newsform':newsform, 'page_obj':page_obj})
 
 
-def show_article(request , id):
+def show_article(request , slug):
     tags = []
     comment_form = CommentForm()
     newsform = newsletter_form(request)
-    article = Articles.objects.get(id = id)
+    article = Articles.objects.get(slug = slug)
     comments = article.comments.filter(publish = True)
     new_comment = None
     facebook_url = article.author.profile.facebook_url
@@ -61,7 +57,7 @@ def show_article(request , id):
             comment_form = CommentForm()
     context={
         'newsform':newsform,
-        'article':article,
+        'article_detail':article,
         'facebook_url':facebook_url,
         'twitter_url':twitter_url,
         'instagram_url':instagram_url,
@@ -121,9 +117,9 @@ def blog_contact(request):
             send_mail(subject=f'Envoyer par {form.cleaned_data["full_name"] or "anonyme"}',
             message = form.cleaned_data["message"],
             from_email = form.cleaned_data["email"],
-            recipient_list=['cs.ttrx@gmail.com']
+            recipient_list=['contact@02xcode.com']
             )
-            messages.success(request, 'Votre message a bien été envoyé ! merci allons vous repondre bientot')
+            messages.success(request, 'Votre message a bien été envoyé. Nous allons vous répondre bientôt')
             form = ContactForm()
     else:
         form = ContactForm()
@@ -140,12 +136,16 @@ def politique(request):
     politique = get_object_or_404(SiteInfo, title_tags = "politique")
     return render(request, 'politique.html', context={"politique":politique, "newsform":newsform})
 
+@login_required()
+@permission_required('blog.add_articles', raise_exception=True)
 def dashbord(request):
     author_articles = Articles.objects.filter(Q(author = request.user)).order_by('id')
     return render(request, 'dashbord2.html', context={'author_articles':author_articles})
 
-def delete(request, id):
-    article = get_object_or_404(Articles, id = id)
+@login_required()
+@permission_required('blog.add_articles', raise_exception=True)
+def delete(request, slug):
+    article = get_object_or_404(Articles, slug = slug)
     del_form = ArticleForm(instance = article)
     if request.method == "POST":
         del_form = ArticleForm(request.POST, instance = article)
@@ -154,11 +154,13 @@ def delete(request, id):
         return redirect('dashbord')
     return render(request, 'delete.html', context={'del_form': del_form})
 
-def edit(request, id):
-    article = get_object_or_404(Articles, id = id)
+@login_required()
+@permission_required('blog.add_articles', raise_exception=True)
+def edit(request, slug):
+    article = get_object_or_404(Articles, slug = slug)
     edit_form = ArticleForm(instance = article)
     if request.method == "POST":
         edit_form = ArticleForm(request.POST, instance = article)
         edit_form.save()
         messages.success(request, 'Votre Article a bien été modifié')
-    return render(request, 'edit.html', context={'article_form': edit_form})
+    return render(request, 'edit.html', context={'article_form': edit_form, "article":article})

@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from unicodedata import name
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include, re_path
@@ -22,38 +21,51 @@ from blog.views import *
 from portfolio.views import*
 from django.conf.urls.static import static
 from django.views.static import serve
-from django.contrib.auth.views import LoginView , LogoutView , PasswordChangeView , PasswordChangeDoneView , PasswordResetView
+from django.contrib.auth import views as auth_views
+from classes.sitemaps import ArticlesSitemap
+from django.contrib.sitemaps.views import sitemap
+
+sitemaps = {
+		"articles": ArticlesSitemap,
+}
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('', blog, name='blog'),
     path('dashbord/', dashbord, name='dashbord'),
-    path('delete/<int:id>', delete, name='delete'),
-    path('edit/<int:id>', edit, name='edit'),
+    path('delete/<str:slug>', delete, name='delete'),
+    path('edit/<str:slug>', edit, name='edit'),
     path('portfolio/', portfolio, name='portfolio'),
     path('mycv/', cv, name= 'cv'),
     path('projects/', projects, name ='projects'),
     path('projects/<int:id>', projects, name ='projects'),
     path('contact', contact, name = 'contact'),
     path('newletter/', newsletter, name='newsletter'),
-    path('blog/article/', articles, name='articles'),
-    path('blog/article/<int:id>', show_article, name='show_article'),
-    path('blog/search/', blog_search, name='blog_search'),
-    path('blog/add_art/', add_article, name='add_article'),
-    path('blog/register/', register, name='register'),
-    path('blog/contact/', blog_contact, name='blog_contact'),
+    path('articles/', articles, name='articles'),
+    path('articles/<str:slug>', show_article, name='show_article'),
+    path('search/', blog_search, name='blog_search'),
+    path('add_art/', add_article, name='add_article'),
+    path('register/', register, name='register'),
+    path('contact/', blog_contact, name='blog_contact'),
     path('politique/', politique, name='politique'),
     path('about/', about, name='about'),
     path('login/', login_view, name="login"),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('update_profile/<int:user_id>', update_frofile , name="update_frofile"),
-    path('pass_change/', PasswordChangeView.as_view(template_name = "auth/password_change.html"), name = "password_change"),
-    path('password_change_done/', PasswordChangeDoneView.as_view(template_name = "auth/pass_change_done.html") , name = 'password_change_done'),
+    #path('pass_change/', auth_views.PasswordChangeView.as_view(template_name = "password_change.html"), name = "password_change"),
+    #path('password_change_done/', auth_views.PasswordChangeDoneView.as_view(template_name = "pass_change_done.html") , name = 'password_change_done'),
+
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset__done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
+    path('password_reset/complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'), 
+    path("password_reset/", password_reset_request, name="password_reset"),
     path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',  activate, name='activate'),  
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("unicorn/", include("django_unicorn.urls")),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root':settings.STATIC_ROOT}),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps},
+						name='django.contrib.sitemaps.views.sitemap')
 ]
 urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

@@ -4,28 +4,36 @@
     <meta charset = "UTF-8"/>
     <meta name = "viewport", content = "width=device-width, initial-scale = 1.0"/>
     <meta http-equiv = "X-UA-compatible" content = "ie=edge"/>
-    <title> 02xcode</title>
+    <meta name="description" property="og:description" content= "Apprendre et patager avec les autres est le but de 02xcode">
+    <meta name="keywords" content= "python , Intelligence Artifielle, Securité informatique, Data science, Reseau, programmation système">
+    <meta name="author" content= "02x-code - csttrx">
+    <meta property="og:image" content= {% static 'url images/default_profile.png' %} />
+    <meta property="og:image:alt" content="02xcode - logo" />
+    {#   <meta property="og:url" content={{request.build_absolute_uri()}}/>#}
+    <meta property="og:title" content='02xcode - Apprendre et partager' />
+    <title> 02xcode - python, django, c and c++ pour Data sience, IA, web, programmation system, reseau et securité informatique.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai.min.css">
     <link rel="stylesheet" href="{% static 'blog_style.css' %}">
     <link rel="stylesheet" href="{% static 'base.css' %}"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://kit.fontawesome.com/cc08bec826.js" crossorigin="anonymous"></script>
-
-</head>
+    
 <body>
     
     <div class="blog">
         {% include 'partiels/blog_header.html' %}
         {% include 'partiels/blog_hero.html' %}
-        {{context_nb_vistors}}
+
+        <i class="fab fa-facebook"></i>
+        <i class="fa fa-car"></i>
         <div class="blog-main">    
             {% block content %}
                 <div class="news-article">
                     <h3 style  = "margin-left:20px ;" > Les nouveaux </h3>
                     <div class="all-article">
                         {% for article in news_articles %}
-                            <a  href="{% url 'show_article' article.id %}">
+                            <a  href="{% url 'show_article' article.slug %}">
                                 <div class="all-content">
 
                                     <div class="article-img">
@@ -61,7 +69,7 @@
                                         <p>
                                             {{article.description}}
                                         </p>
-                                        <i class="fas fa-arrow-right"></i>
+                                        <i class="fa fa-arrow-right"></i>
                                     </div>
                                     
 
@@ -77,7 +85,7 @@
     </div>
 
     {% include 'partiels/footer2.html' %}
-
+    <script src="https://kit.fontawesome.com/3820f080cb.js" crossorigin="anonymous"></script>
     <script>
         document
         .getElementById('icon')
@@ -89,6 +97,6 @@
 
         document.getElementById("Check").required = true;
     </script>
-
+    <script src="https://kit.fontawesome.com/3820f080cb.js" crossorigin="anonymous"></script>
 </body>
 </html>

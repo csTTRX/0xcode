@@ -12,7 +12,7 @@
         {{form.username}}
         {{form.password}}
         <button type="submit" > Se connecter</button>
-        <p class = "p"> Vous n'avez pas un compte ?<a href=" {% url 'register' %} "> créer un compte</a> </p>
+        <p class = "p"> Vous n'avez pas un compte ?<a href=" {% url 'register' %} "> créer un compte</a> |<a href=" {% url 'password_reset' %} "> Mot de passe oublié ?</a> </p>
         {% csrf_token %}
     </form>
 </div>

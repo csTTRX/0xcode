@@ -1,10 +1,9 @@
+from django.urls import reverse
 from datetime import datetime
-from distutils.command.upload import upload
-from ipaddress import ip_address
 from django.db import models
 from authentication.models import User
-from ckeditor.fields import RichTextField , RichTextFormField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 from PIL import Image
 class Categories(models.Model):
     name = models.CharField(max_length=200)
@@ -24,6 +23,7 @@ class Articles(models.Model):
 
     title = models.CharField(max_length=200)
     title_tags = models.CharField(blank = True, null = True, max_length=200)
+    slug = models.SlugField(max_length=250, default='',editable=False,)
     author = models.ForeignKey(User , on_delete=models.CASCADE)
     body = RichTextUploadingField()
     post_date = models.DateTimeField(auto_created=True)
@@ -31,17 +31,15 @@ class Articles(models.Model):
     publish = models.BooleanField(default=False)
     is_premium = models.BooleanField(default=False)
     categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
-    outils = models.CharField(max_length=500)
-    likes = models.ManyToManyField(User ,related_name='blogs_likes')
-    description = models.CharField(max_length=1200)
-    
+    outils = models.CharField(max_length=500, blank=True, null=True)
+    likes = models.ManyToManyField(User ,related_name='blogs_likes', blank=True, null=True)
+    description = models.TextField()
+
     class Meta:
         ordering = ['update_date']
         permissions = [
             ("premium_articles", "Peut voir les articles premiums" )
         ]
-
-    IMAGE_MAX_SIZE = (300, 300)
 
     def __str__(self):
         return str(self.user)
@@ -51,6 +49,16 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("show_article", args=[self.slug])
+    
+    def save(self,*args, **kwargs):
+        self.slug = slugify('-'.join([self.title, 
+            str(self.post_date.year),
+            str(self.post_date.month)]),
+            allow_unicode=False)
+        super(Articles, self).save(*args, **kwargs)
     
 class Comments(models.Model):
 

@@ -4,14 +4,29 @@
     <meta charset = "UTF-8"/>
     <meta name = "viewport", content = "width=device-width, initial-scale = 1.0"/>
     <meta http-equiv = "X-UA-compatible" content = "ie=edge"/>
-    <title> 02xcode </title>
+    {% if article_detail %}
+    <title> 02xcode - {{article_detail.title}} </title>
+    <meta name="description" property="og:description" content= {{article_detail.description}}>
+    <meta name="keywords" content={{article_detail.title_tags}}>
+    <meta name="author" content={{article_detail.author}}>
+    <meta property="og:title" content={{article_detail.title}} />
+    {% else %} 
+    <title> 02xcode - python, django, c and c++ pour Data sience, IA, web, programmation system, reseau et securité informatique.</title>
+    <meta name="description" property="og:description" content= "Apprendre et patager avec les autres est le but de 02xcode">
+    <meta name="keywords" content= "python , Intelligence Artifielle, Securité informatique, Data science, Reseau, programmation système">
+    <meta name="author" content= "02x-code - csttrx">
+    {% endif %}
+    <meta property="og:image" content= {% static 'url images/default_profile.png' %} />
+    <meta property="og:image:alt" content="02xcode - logo" />
+    {#   <meta property="og:url" content={{request.build_absolute_uri()}}/>#}
+    <meta property="og:title" content='02xcode - Apprendre et partager' />
     <link rel="stylesheet" href="{% static 'blog_style.css' %}">
     <link rel="stylesheet" href="{% static 'base.css' %}"> 
-    <link rel="stylesheet" href="{% static 'code_snippet.css' %}"> 
+    <link rel="stylesheet" href="{% static 'code_snippet.css' %}">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/arta.min.css">
-    <script src="https://kit.fontawesome.com/cc08bec826.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
     <div class="blog">
@@ -24,7 +39,6 @@
         {% block article_content %}{% endblock article_content %}
         </div>
     </div>
-
     {% include 'partiels/footer2.html' %}
 
     <script>
@@ -40,3 +54,4 @@
     </script>
 </body>
 </html>
+

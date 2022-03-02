@@ -1,7 +1,6 @@
 {% extends 'blog_base.html' %}
 
 {% block content %}
-{% include 'partiels/messages.html' %}
     <div class="r_form">
         <form action="", method = "post">
             {% csrf_token %}
@@ -9,8 +8,7 @@
             {{form.full_name}}
             {{form.email}}
             {{form.message}}
-            <button type="submit" class = 'btn'> Envoyez</button> 
+            <button type="submit" class = 'btn'> Envoyez</button>
         </form>
     </div>
 {% endblock content %}
-

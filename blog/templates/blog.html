@@ -4,7 +4,7 @@
     <h3 style  = "margin-left:20px ;" > Tous nos Articles </h3>
     <div class="all-article">
         {% for article in page_obj %}
-            <a  href="{% url 'show_article' article.id %}">
+            <a  href="{% url 'show_article' article.slug %}">
                 <div class="all-content">
 
                     <div class="article-img">

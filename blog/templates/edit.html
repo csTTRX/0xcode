@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="retourn">
-    <a href="{% url 'dashbord' %}"> Retourne au dashbord</a>
+    <a href="{% url 'dashbord' %}">Dashbord</a> |
+    <a href="{% url 'show_article' article.slug %}"> Visialiser</a>
 </div>
 {% if article_form.errors %}
     {{article_form.errors}}
@@ -11,12 +12,13 @@
     <form action="", method = 'post'>
         {% csrf_token %}
         {{article_form.media}}
+        <div style="display:flex; flex-direction:row; justify-content:space-between;"> {{article_form.publish}} <label class ='check-p'>Publier maintenant</label></div> 
         {{article_form.title}}
         {{article_form.title_tags}}
         {{article_form.categories}}
         {{article_form.description}}
         {{article_form.body|safe}}
-        <button type="submit">Ajoutez</button>
+        <button type="submit">Modifier</button>
     </form>
 </div>
 {% endblock content %}

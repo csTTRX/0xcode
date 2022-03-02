@@ -16,15 +16,16 @@ class ArticleForm(forms.ModelForm):
     title =forms.CharField(widget=forms.TextInput(attrs={'class' : "art-input" ,'placeholder':'Le titre'}))
     title_tags =forms.CharField(widget=forms.TextInput(attrs={'class' : "art-input" ,'placeholder':'Les tags'}))
     description = forms.CharField(widget=forms.Textarea(attrs={"class" : "form_textarea", "placeholder":"Description"}))
+    #publish = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class" : "art-input", "label":"Publier maintenant"}))
     class Meta:
         model = Articles
-        fields = ['title', 'title_tags', 'body','categories', 'description']
+        fields = ['title', 'title_tags', 'body','categories', 'description','publish',]
     
     def __init__(self, *args, **kwargs):
         super(ArticleForm,self ).__init__(*args, **kwargs)
         self.fields['body'].widget.attrs={"class":'art-body', 'placeholder':'Le contenu de votre article'}
         self.fields['categories'].widget.attrs={"class":'art-cat', 'placeholder':'choisisez une categorie'}
-        #self.fields['photo'].widget.attrs={"class":'art-img', 'label':'televersez une image'}
+        #self.fields['publish'].widget.attrs={"class":'art-input', 'label':'Publier maintenant'}
 
 
 class CommentForm(forms.ModelForm):
