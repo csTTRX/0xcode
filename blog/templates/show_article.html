@@ -19,10 +19,10 @@
 
         <div class="author-social">
             <ul>
-                <li>{% if facebook_url != "" %}<a href="{{twitter_url}}"><i class= "fab fa-facebook"></i></a>{% endif %}</li>
-                <li>{% if instagram_url != "" %}<a href="{{instagram_url}}"><i class= "fab fa-instagram"></i></a>{% endif %}</li>
-                <li>{% if twitter_url != "" %}<a href="{{twitter_url}}"><i class= "fab fa-twitter"></i></a>{% endif %}</li>
-                <li>{% if linkedin_url != "" %}<a href="{{linkedin_url}}"><i class= "fab fa-linkedin"></i></a>{% endif %}</li>
+                <li>{% if facebook_url|stringformat:"i" != "" %}<a href="{{twitter_url}}"><i class= "fab fa-facebook"></i></a>{% endif %}</li>
+                <li>{% if instagram_url|stringformat:"i" != "" %}<a href="{{instagram_url}}"><i class= "fab fa-instagram"></i></a>{% endif %}</li>
+                <li>{% if twitter_url|stringformat:"i" != "" %}<a href="{{twitter_url}}"><i class= "fab fa-twitter"></i></a>{% endif %}</li>
+                <li>{% if linkedin_url|stringformat:"i" != "" %}<a href="{{linkedin_url}}"><i class= "fab fa-linkedin"></i></a>{% endif %}</li>
             </ul>
         </div>
     
