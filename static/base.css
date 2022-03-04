@@ -77,6 +77,9 @@
     border-bottom: 1px solid var(--black-easy);
     padding-bottom: 10px;
 }
+.footer2 .foot-content2  ul{
+    margin-top: 15px;
+}
 .social-container2 li {
     display: inline;
     padding: 10px;

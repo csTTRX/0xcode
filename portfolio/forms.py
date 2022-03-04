@@ -11,7 +11,7 @@ class NewsletterForm(forms.ModelForm):
     news_letter = forms.BooleanField(widget=forms.HiddenInput, initial=True)
     email = forms.EmailField(widget=forms.EmailInput(attrs={
         'class':'news-input',
-        "placeholder":"Addresse mail",
+        "placeholder":"Adresse mail",
     }))
     class Meta:
         model = Newsletter

@@ -9,16 +9,12 @@
     <meta name="author" content= "02x-code - csttrx">
     <meta property="og:image" content= {% static 'url images/default_profile.png' %} />
     <meta property="og:image:alt" content="02xcode - logo" />
-    {#   <meta property="og:url" content={{request.build_absolute_uri()}}/>#}
+    {#   <meta property="og:url" content={{request.build_absolute_uri()}}/> #}
     <meta property="og:title" content='02xcode - Apprendre et partager' />
     <title> 02xcode - python, django, c and c++ pour Data sience, IA, web, programmation system, reseau et securité informatique.</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai.min.css">
-    <link rel="stylesheet" href="{% static 'blog_style.css' %}">
-    <link rel="stylesheet" href="{% static 'base.css' %}"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+    <link rel="stylesheet" href="{% static 'blog_style.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 <body>
     
     <div class="blog">
@@ -82,7 +78,8 @@
     </div>
 
     {% include 'partiels/footer2.html' %}
-    <script src="https://kit.fontawesome.com/3820f080cb.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script>
         document
         .getElementById('icon')
@@ -94,6 +91,5 @@
 
         document.getElementById("Check").required = true;
     </script>
-    <script src="https://kit.fontawesome.com/3820f080cb.js" crossorigin="anonymous"></script>
 </body>
 </html>

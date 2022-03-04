@@ -19,9 +19,8 @@ body{
 *{
     padding: 0;
     margin: 0;
-    list-style: none;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'arial','Poppins', sans-serif;
 }
 .blog-main{
     margin-left: 150px;
@@ -192,6 +191,7 @@ label.logo{
     color: var(--second-color);
     line-height: 100px;
     cursor: pointer;
+    font-family: 'Poppins', 'arial', sans-serif;
 }
 nav ul {
     float: right;
@@ -410,7 +410,7 @@ tr:nth-child(2n){
     border-radius: 5px;
     padding-top: 10px;
 }
-.r_form form  input, button{
+.r_form form  input, .r_form form button{
     margin-top: 15px;
     height: 45px;
     border: none;
@@ -421,7 +421,7 @@ tr:nth-child(2n){
     padding: 0 5px;
     max-width: 100%;
 }
-.r_form p, ul{
+.r_form p, .r_form ul{
     margin-top: 15px;
 }
 .r_form .p{
@@ -473,7 +473,7 @@ tr:nth-child(2n){
 .r_form form  input:hover{
     border-bottom: 2px solid var(--primary-color)
 }
-.r_form form li, p{
+.r_form form li, .r_form form p{
     font-size: 12px;
     font-weight: 200;
 }
@@ -527,18 +527,17 @@ tr:nth-child(2n){
     align-self:center;
     text-align: center;
 }
-.article-content p{
- font-weight: 400;
- font-size: 16px;
-}
 .article-container{
     position: relative;
     max-width: 50%;
 }
+.article-content ul,ol{
+    padding-left: 5%;
+}
+
 .article-content{
     position: relative;
-    max-width: 100%;
-    list-style: auto;
+    font-family:auto;
 }
 .info{
     display: flex;
@@ -579,6 +578,7 @@ tr:nth-child(2n){
 .author-social ul li{
     display: inline;
     margin-right: 20px;
+    list-style: none;
 }
 .author-social ul li i{
     font-size: 35px;
@@ -588,12 +588,17 @@ tr:nth-child(2n){
     font-size: 37px;
     border-radius: 50%;
 }
+.article-tags ul {
+    margin-top: 15px;
+
+}
 .article-tags ul li {
     display: inline;
     background:var(--primary-color);
     padding: 5px;
     border-radius: 5px;
     font-weight: 300;
+    list-style: none;
 }
 .show-container{
     display: flex;

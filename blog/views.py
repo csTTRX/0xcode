@@ -95,7 +95,8 @@ def blog_search(request):
     if request.method == "POST":
         find = False
         searched = request.POST['searched']
-        result = Articles.objects.filter(title__contains = searched)
+        result = Articles.objects.filter((Q(description__contains = searched)|Q(title__contains = searched)))
+        result = result.filter(publish= True)
         if len(result) > 0:
             find = True
             """paginator = Paginator(result, 100)
