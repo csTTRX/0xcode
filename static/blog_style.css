@@ -538,6 +538,7 @@ tr:nth-child(2n){
 .article-content{
     position: relative;
     font-family:auto;
+    line-height: 27px;
 }
 .info{
     display: flex;

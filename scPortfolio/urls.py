@@ -31,7 +31,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
-    path('admin/', admin.site.urls),
+    path('ircsttrx/', admin.site.urls),
     path('', blog, name='blog'),
     path('dashbord/', dashbord, name='dashbord'),
     path('delete/<str:slug>', delete, name='delete'),

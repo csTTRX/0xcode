@@ -203,6 +203,8 @@ CKEDITOR_CONFIGS = {
             '/',
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'codesnippet', 'items': ['CodeSnippet']},
+            {'name': 'lineheight', 'items': ['LineHeight']},
+
             '/',  # put this to force next toolbar on new line
             {'name': 'yourcustomtools', 'items': [
                 # put the name of your editor.ui.addButton here
@@ -237,7 +239,7 @@ CKEDITOR_CONFIGS = {
             'elementspath',
             'language',
             'sourcedialog',
-            'codesnippet'
+            'codesnippet',
             
         ]),
     }
